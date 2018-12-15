@@ -54,3 +54,34 @@ int main()
             total_boy += arr[i+1][j];
             i++;
         }
+        else if (arr[i+1][j] == arr[i][j+1]) {
+            int t1 = 2;
+            int t2 = 1;
+            while(1){
+                if(i + t1 > n || j + t1 > m) {
+                    boy[i][j] = 'B';
+                    total_boy += arr[i][j+1];
+                    j++;
+                    break;
+                } else if ((arr[i][j+t1] + arr[i+t1-t2][j+t2]) > (arr[i+t1][j] + arr[i+t2][j+t1-t2])) {
+                    boy[i][j] = 'B';
+                    total_boy += arr[i][j+1];
+                    j++;
+                    break;
+                } else if ((arr[i][j+t1] + arr[i+t1-t2][j+t2]) < (arr[i+t1][j] + arr[i+t2][j+t1-t2])) {
+                    boy[i][j] = 'B';
+                    total_boy += arr[i][j+1];
+                    i++;
+                    break;
+                } else {
+                    t1++;
+                    t2++;
+                }
+            }
+        } else {
+            boy[i][j] = 'B';
+            total_boy += arr[i][j+1];
+            j++;
+        }
+    }
+        

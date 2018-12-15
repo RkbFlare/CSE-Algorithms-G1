@@ -84,4 +84,93 @@ int main()
             j++;
         }
     }
+    /// **NOT NEEDED**
+    printf("\n\n");
+    for(i = 1; i <= n; i++) {
+        for(j = 1; j <= m; j++) {
+            printf("%c  ", boy[i][j]);
+        }
+        printf("\n\n");
+    }
+
+    char girl[n][m];
+    for(i=n;i>=1;i--)
+    {
+        for(j=m;j>=1;j--)
+        {
+            girl[i][j]=arr[i][j]+'0';
+        }
+    }
+
+    i=n;
+    j=1;
+    while(1)
+    {
+        if(i== 1 || j == m)
+        {
+            while(i>1){
+                girl[i][j]='g';
+                total_girl +=arr[i-1][j];
+                i--;
+            }
+            while(j<m)
+            {
+                girl[i][j]='g';
+                total_girl +=arr[1][j+1];
+                j++;
+            }
+            if(i<=1&&j>=m)
+            {
+                girl[i][j]='g';
+                break;
+            }
+        }
+        else if(arr[i-1][j]>arr[i][j+1])
+        {
+            girl[i][j]='g';
+            total_girl +=arr[i-1][j];
+            i--;
+        }
+        else if(arr[i-1][j] == arr[i][j+1])
+        {
+            int t1 = 2;
+            int t2 = 1;
+            while(1)
+            {
+                if(i+t1<1 || j+t1>m)
+                {
+                    girl[i][j]='g';
+                    total_girl += arr[i][j+1];
+                j++;
+                    break;
+                }
+                else if((arr[i][j+t1]+arr[i+t1-t2][j+t2])>(arr[i+t1][j+t1-t2]))
+                {
+                    girl[i][j]='g';
+                    total_girl +=arr[i][j+1];
+                    j++;
+                    break;
+                }
+                else if((arr[i][j+t1]+arr[i+t1-t2][j+t2])<(arr[i+t1][j+t1-t2]))
+                {
+                    girl[i][j]='g';
+                    total_girl += arr[i][j+1];
+                    i--;
+                    break;
+                }
+                else
+                {
+                    t1++;
+                    t2++;
+                }
+            }
+        }
+        else
+        {
+            girl[i][j]='g';
+            total_girl +=arr[i][j+1];
+            j++;
+
+        }
+    }
         

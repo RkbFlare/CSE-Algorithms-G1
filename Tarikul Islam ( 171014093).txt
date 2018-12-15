@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    int i = 1;
+    int j = 1;
+    int m, n, k;
+    // Number of cells
+    printf("Enter Total Row's: ");
+    scanf("%d", &n);
+    printf("\nEnter Total Column's: ");
+    scanf("%d", &m);
+    int arr[n][m];
+    // Total cal. result for both boy and girl
+    int total_boy = 0;
+    int total_girl = 0;
+    // Denote cal
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= m; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }

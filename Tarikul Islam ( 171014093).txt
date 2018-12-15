@@ -173,4 +173,35 @@ int main()
 
         }
     }
+    printf("\n");
+    for(i=n;i>=1;i--)
+    {
+        for(j=m;j>=1;j--)
+        {
+            printf("%c  ",girl[i][j]);
+        }
+        printf("\n\n");
+
+    }
+    for(i=n;i>=1;i--)
+    {
+        for(j=m;j>=1;j--)
+        {
+            if((girl[i][j] == 'g' && boy[i][j] == 'B')){
+                printf("\nBoth of them will meet in cell[%d][%d]\n\n", i, j);
+                arr[i+1][j+1] = -1;
+                break;
+            }
+        }
+        if(arr[i+1][j+1] == -1)
+            break;
+    }
+    printf("\nTotal gain for boy: %d\nTotal gain for girl: %d\n", total_boy, total_girl);
+}
+
+/*9 8 7 6 5
+1 2 3 4 5
+9 8 7 6 5
+5 6 7 8 9
+1 2 3 4 5*/7
         
